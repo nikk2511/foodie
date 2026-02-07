@@ -55,7 +55,7 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
     return (
         <div
             ref={sectionRef}
-            className={`relative min-h-screen flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}
+            className={`relative min-h-[100svh] py-12 sm:py-16 md:py-20 flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}
         >
             {/* Background gradient */}
             <div className={`absolute inset-0 bg-gradient-radial ${dish.gradient}`} />
@@ -66,7 +66,7 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
                 style={{ opacity, x }}
             >
                 {/* Text content */}
-                <div className={`flex-1 ${isEven ? 'lg:text-left' : 'lg:text-right'} text-center`}>
+                <div className={`flex-1 ${isEven ? 'lg:text-left' : 'lg:text-right'} text-center px-4 sm:px-0`}>
                     <ParallaxSection speed={0.2} direction="up">
                         <motion.span
                             className="inline-block text-amber text-sm font-medium tracking-widest mb-4"
@@ -81,11 +81,11 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
                             text={dish.name}
                             as="h2"
                             type="word"
-                            className="text-headline text-white mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-headline text-white mb-4"
                         />
 
                         <motion.p
-                            className="text-2xl text-gradient-gold font-semibold mb-6"
+                            className="text-lg sm:text-xl md:text-2xl text-gradient-gold font-semibold mb-4 sm:mb-6"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -95,7 +95,7 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
                         </motion.p>
 
                         <motion.p
-                            className="text-muted-light text-lg max-w-md mx-auto lg:mx-0"
+                            className="text-muted-light text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -108,13 +108,13 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
 
                 {/* Image Section */}
                 <motion.div
-                    className="flex-1 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[70vh] w-full flex items-center justify-center relative"
+                    className="flex-1 h-[350px] sm:h-[450px] md:h-[550px] lg:h-[65vh] w-full flex items-center justify-center relative"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="relative w-full h-full max-w-[85vw] sm:max-w-[80vw] md:max-w-[75vw] lg:max-w-[70vw]">
+                    <div className="relative w-full h-full max-w-[90vw] sm:max-w-[75vw] md:max-w-[65vw] lg:max-w-[60vw]">
                         <motion.img
                             src={dish.image}
                             alt={dish.name}

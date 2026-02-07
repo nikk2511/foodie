@@ -42,7 +42,7 @@ export function Footer() {
             <NeonDivider color="amber" className="absolute top-0" />
 
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
                     {/* Brand */}
                     <div className="lg:col-span-2">
                         <motion.div
@@ -55,13 +55,13 @@ export function Footer() {
                                 <img src="/logo.png" alt="Flame Kitchen Logo" className="w-full h-full object-contain" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-gradient-fire">FLAME</h2>
+                                <h2 className="text-xl sm:text-2xl font-bold text-gradient-fire">FLAME</h2>
                                 <p className="text-xs text-muted-light tracking-widest">KITCHEN</p>
                             </div>
                         </motion.div>
 
                         <motion.p
-                            className="text-muted-light mb-8 max-w-sm"
+                            className="text-muted-light mb-6 sm:mb-8 max-w-sm text-sm sm:text-base"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -77,7 +77,7 @@ export function Footer() {
                                 <MagneticWrapper key={social.label} strength={0.3}>
                                     <motion.a
                                         href={social.href}
-                                        className="w-12 h-12 rounded-full bg-surface-light flex items-center justify-center hover:bg-amber/20 transition-colors"
+                                        className="w-12 h-12 min-w-[44px] min-h-[44px] rounded-full bg-surface-light flex items-center justify-center hover:bg-amber/20 transition-colors"
                                         initial={{ opacity: 0, scale: 0 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}

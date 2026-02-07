@@ -67,7 +67,7 @@ export function HeroSection() {
                     />
 
                     <motion.h1
-                        className="text-display text-gradient-fire mb-6"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-display text-gradient-fire mb-4 sm:mb-6"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -76,7 +76,7 @@ export function HeroSection() {
                     </motion.h1>
 
                     <motion.p
-                        className="text-lg md:text-xl text-muted-light max-w-lg mx-auto lg:mx-0 mb-8"
+                        className="text-base sm:text-lg md:text-xl text-muted-light max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-8 px-4 lg:px-0"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 1.2 }}

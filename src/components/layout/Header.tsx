@@ -45,15 +45,15 @@ export function Header() {
                             onMouseLeave={() => resetCursor()}
                         >
                             <motion.div
-                                className="relative w-12 h-12"
+                                className="relative w-10 h-10 sm:w-12 sm:h-12"
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
                                 <img src="/logo.png" alt="Flame Kitchen Logo" className="w-full h-full object-contain" />
                             </motion.div>
                             <div className="hidden sm:block">
-                                <h1 className="text-2xl font-bold text-gradient-fire">FLAME</h1>
-                                <p className="text-sm text-muted-light tracking-widest">KITCHEN</p>
+                                <h1 className="text-xl sm:text-2xl font-bold text-gradient-fire">FLAME</h1>
+                                <p className="text-xs sm:text-sm text-muted-light tracking-widest">KITCHEN</p>
                             </div>
                         </Link>
                     </MagneticWrapper>
@@ -81,24 +81,25 @@ export function Header() {
                             <AnimatedButton size="sm">Order Now</AnimatedButton>
                         </div>
 
-                        {/* Mobile Menu Toggle */}
+                        {/* Mobile Menu Toggle - Touch optimized */}
                         <button
-                            className="lg:hidden flex flex-col gap-1.5 p-2"
+                            className="lg:hidden flex flex-col gap-1.5 p-3 min-w-[44px] min-h-[44px] items-center justify-center"
                             onClick={() => setMenuOpen(!menuOpen)}
                             onMouseEnter={() => setCursorType('pointer')}
                             onMouseLeave={() => resetCursor()}
+                            aria-label="Toggle menu"
                         >
                             <motion.span
-                                className="w-6 h-0.5 bg-white"
-                                animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
+                                className="w-6 h-0.5 bg-white rounded-full"
+                                animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }}
                             />
                             <motion.span
-                                className="w-6 h-0.5 bg-white"
+                                className="w-6 h-0.5 bg-white rounded-full"
                                 animate={{ opacity: menuOpen ? 0 : 1 }}
                             />
                             <motion.span
-                                className="w-6 h-0.5 bg-white"
-                                animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
+                                className="w-6 h-0.5 bg-white rounded-full"
+                                animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }}
                             />
                         </button>
                     </div>
