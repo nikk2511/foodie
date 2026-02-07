@@ -45,15 +45,15 @@ export function Header() {
                             onMouseLeave={() => resetCursor()}
                         >
                             <motion.div
-                                className="w-12 h-12 rounded-full bg-gradient-to-br from-amber to-gold flex items-center justify-center"
-                                whileHover={{ scale: 1.1, rotate: 10 }}
+                                className="relative w-12 h-12"
+                                whileHover={{ scale: 1.1 }}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                <span className="text-2xl">🔥</span>
+                                <img src="/logo.png" alt="Flame Kitchen Logo" className="w-full h-full object-contain" />
                             </motion.div>
                             <div className="hidden sm:block">
-                                <h1 className="text-xl font-bold text-gradient-gold">FLAME</h1>
-                                <p className="text-xs text-muted-light tracking-widest">KITCHEN</p>
+                                <h1 className="text-2xl font-bold text-gradient-fire">FLAME</h1>
+                                <p className="text-sm text-muted-light tracking-widest">KITCHEN</p>
                             </div>
                         </Link>
                     </MagneticWrapper>
@@ -64,7 +64,7 @@ export function Header() {
                             <MagneticWrapper key={link.href} strength={0.2}>
                                 <Link
                                     href={link.href}
-                                    className="text-sm font-medium text-muted-light hover:text-white transition-colors relative group"
+                                    className="text-base font-medium text-muted-light hover:text-white transition-colors relative group"
                                     onMouseEnter={() => setCursorType('pointer')}
                                     onMouseLeave={() => resetCursor()}
                                 >

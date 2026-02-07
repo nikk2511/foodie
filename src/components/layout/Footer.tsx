@@ -51,11 +51,11 @@ export function Footer() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber to-gold flex items-center justify-center">
-                                <span className="text-3xl">🔥</span>
+                            <div className="w-14 h-14 flex items-center justify-center">
+                                <img src="/logo.png" alt="Flame Kitchen Logo" className="w-full h-full object-contain" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-gradient-gold">FLAME</h2>
+                                <h2 className="text-2xl font-bold text-gradient-fire">FLAME</h2>
                                 <p className="text-xs text-muted-light tracking-widest">KITCHEN</p>
                             </div>
                         </motion.div>

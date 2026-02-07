@@ -1,0 +1,6 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#2d2d2d"/>
+  <circle cx="300" cy="300" r="250" fill="#d97706" opacity="0.2"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="48">Gourmet Burger</text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="24">(Placeholder)</text>
+</svg>

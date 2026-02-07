@@ -36,7 +36,7 @@ export default function Home() {
       <Header />
 
       {/* Main content */}
-      <main className="relative">
+      <main className="relative min-h-screen">
         {/* Hero Section */}
         <HeroSection />
 

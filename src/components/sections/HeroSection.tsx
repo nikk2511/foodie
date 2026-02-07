@@ -7,24 +7,10 @@ import { RevealText } from '@/components/animations/RevealText';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 import { ParallaxLayer } from '@/components/animations/ParallaxSection';
 import { GlassOrb } from '@/components/ui/GlassPanel';
+import { InteractiveBurger } from '@/components/animations/InteractiveBurger';
+import { AnimatedBackground } from '@/components/animations/AnimatedBackground';
 
-// Dynamically import 3D components to avoid SSR issues
-const Scene3D = dynamic(
-    () => import('@/components/3d/Scene').then((mod) => mod.Scene3D),
-    { ssr: false }
-);
-const BurgerModel = dynamic(
-    () => import('@/components/3d/FoodModel').then((mod) => mod.BurgerModel),
-    { ssr: false }
-);
-const AmbientParticles = dynamic(
-    () => import('@/components/3d/Particles').then((mod) => mod.AmbientParticles),
-    { ssr: false }
-);
-const SteamParticles = dynamic(
-    () => import('@/components/3d/Particles').then((mod) => mod.SteamParticles),
-    { ssr: false }
-);
+
 
 export function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -69,17 +55,8 @@ export function HeroSection() {
                 style={{ y, opacity, scale }}
             >
                 {/* Text content */}
-                <div className="flex-1 text-center lg:text-left">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mb-4"
-                    >
-                        <span className="inline-block px-4 py-2 rounded-full border border-amber/30 text-amber text-sm font-medium">
-                            ✨ Premium Street Gourmet
-                        </span>
-                    </motion.div>
+                <div className="flex-1 text-center lg:text-left lg:pl-8">
+
 
                     <RevealText
                         text="TASTE THE"
@@ -90,7 +67,7 @@ export function HeroSection() {
                     />
 
                     <motion.h1
-                        className="text-display text-gradient-gold mb-6"
+                        className="text-display text-gradient-fire mb-6"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -124,18 +101,15 @@ export function HeroSection() {
                     </motion.div>
                 </div>
 
-                {/* 3D Food Model */}
                 <motion.div
-                    className="flex-1 h-[400px] md:h-[500px] lg:h-[600px] w-full"
+                    className="flex-1 h-[50vh] md:h-[60vh] lg:h-[70vh] w-full flex items-center justify-center relative z-20"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Scene3D cameraPosition={[0, 0, 6]}>
-                        <BurgerModel scale={1.5} />
-                        <SteamParticles position={[0, 1, 0]} />
-                        <AmbientParticles count={50} />
-                    </Scene3D>
+                    <div className="scale-75 sm:scale-90 md:scale-100">
+                        <InteractiveBurger />
+                    </div>
                 </motion.div>
             </motion.div>
 

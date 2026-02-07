@@ -6,31 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { RevealText } from '@/components/animations/RevealText';
 import { ParallaxSection } from '@/components/animations/ParallaxSection';
 
-// Dynamic imports for 3D
-const Scene3D = dynamic(
-    () => import('@/components/3d/Scene').then((mod) => mod.Scene3D),
-    { ssr: false }
-);
-const PizzaModel = dynamic(
-    () => import('@/components/3d/FoodModel').then((mod) => mod.PizzaModel),
-    { ssr: false }
-);
-const SushiModel = dynamic(
-    () => import('@/components/3d/FoodModel').then((mod) => mod.SushiModel),
-    { ssr: false }
-);
-const DonutModel = dynamic(
-    () => import('@/components/3d/FoodModel').then((mod) => mod.DonutModel),
-    { ssr: false }
-);
-const FireParticles = dynamic(
-    () => import('@/components/3d/Particles').then((mod) => mod.FireParticles),
-    { ssr: false }
-);
-const SteamParticles = dynamic(
-    () => import('@/components/3d/Particles').then((mod) => mod.SteamParticles),
-    { ssr: false }
-);
+
 
 const signatureDishes = [
     {
@@ -38,8 +14,7 @@ const signatureDishes = [
         name: 'Volcanic Pizza',
         tagline: 'Erupting with Flavor',
         description: 'Wood-fired perfection with lava-hot cheese pull that defies gravity.',
-        Model: PizzaModel,
-        Particles: FireParticles,
+        image: '/pizza.png',
         gradient: 'from-crimson/20 via-amber/10 to-transparent',
     },
     {
@@ -47,8 +22,7 @@ const signatureDishes = [
         name: 'Zen Garden Roll',
         tagline: 'Art You Can Taste',
         description: 'Master-crafted sushi combining centuries of tradition with modern flair.',
-        Model: SushiModel,
-        Particles: SteamParticles,
+        image: '/sushi.png',
         gradient: 'from-lime/20 via-emerald/10 to-transparent',
     },
     {
@@ -56,8 +30,7 @@ const signatureDishes = [
         name: 'Golden Bliss',
         tagline: 'Sweet Decadence',
         description: 'Cloud-soft donut glazed in 24k gold, topped with artisan sprinkles.',
-        Model: DonutModel,
-        Particles: null,
+        image: '/donut.png',
         gradient: 'from-gold/20 via-amber/10 to-transparent',
     },
 ];
@@ -133,18 +106,50 @@ function DishSection({ dish, index }: { dish: typeof signatureDishes[0]; index: 
                     </ParallaxSection>
                 </div>
 
-                {/* 3D Model */}
+                {/* Image Section */}
                 <motion.div
-                    className="flex-1 h-[400px] md:h-[500px] w-full"
+                    className="flex-1 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[70vh] w-full flex items-center justify-center relative"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <Scene3D cameraPosition={[0, 0, 5]}>
-                        <dish.Model scale={1.8} />
-                        {dish.Particles && <dish.Particles position={[0, 0.5, 0]} />}
-                    </Scene3D>
+                    <div className="relative w-full h-full max-w-[85vw] sm:max-w-[80vw] md:max-w-[75vw] lg:max-w-[70vw]">
+                        <motion.img
+                            src={dish.image}
+                            alt={dish.name}
+                            className="w-full h-full object-contain drop-shadow-2xl"
+                            animate={{
+                                y: [-10, 10, -10],
+                            }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            whileHover={{
+                                scale: 1.1,
+                                rotate: [0, -2, 2, 0],
+                                transition: {
+                                    scale: { type: "spring", stiffness: 300, damping: 20 },
+                                    rotate: { duration: 0.5 }
+                                }
+                            }}
+                        />
+                        {/* Animated Glow effect */}
+                        <motion.div
+                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-gradient-radial ${dish.gradient} blur-[80px] -z-10 rounded-full`}
+                            animate={{
+                                opacity: [0.4, 0.7, 0.4],
+                                scale: [1, 1.1, 1],
+                            }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    </div>
                 </motion.div>
             </motion.div>
 
